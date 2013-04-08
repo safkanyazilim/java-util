@@ -27,7 +27,6 @@ public class DateUtils {
 	 * @param date the <code>Date</code> instance whose time will be removed
 	 * @return a new <code>Date</code> instance, referring to a "date"
 	 */
-	
     public static Date removeTime(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setLenient(false);
