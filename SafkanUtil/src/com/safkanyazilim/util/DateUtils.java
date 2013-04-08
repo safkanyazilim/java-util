@@ -43,7 +43,7 @@ public class DateUtils {
     
     /**
 	 * <p>
-	 * Static utility method. Converts <code>datestring</code> to date, 
+	 * Static utility method. Converts <code>dateString</code> to date, 
 	 * using the given date format "dd.MM.yyyy" (eg. 17.12.2009) 
 	 * </p>
 	 * 
@@ -71,14 +71,14 @@ public class DateUtils {
         try {
     	     date = df.parse(dateString);                        
         } catch (ParseException e) {
-    	     logger.error("Error in stringToDate", e);
         }
+
         return date;
     }
 	
     /**
 	 * <p>
-	 * Static utility method. Converts <code>datestring</code> to date, 
+	 * Static utility method. Converts <code>dateString</code> to date, 
 	 * using the given date <code>format</code> and <code>locale</code>
 	 * </p>
 	 * 
@@ -94,8 +94,8 @@ public class DateUtils {
         try {
     	     date = df.parse(dateString);                        
         } catch (ParseException e) {
-    	     logger.error("Error in stringToDate", e);
         }
+
         return date;
     }
 	
@@ -115,7 +115,7 @@ public class DateUtils {
      * Get only a date string, which is the date format required and used
      * by Lucene. DateTools of the Lucene package does strange things,
      * probably caused by locale dependency and time zones. This method
-     * should act deterministic.
+     * should act deterministically.
      * 
      * @param date The date. The time value will be ignored.
      * @return The date, as a string, in the format yyyyMMdd
@@ -138,14 +138,7 @@ public class DateUtils {
 		}
 		
 		
-		if (date != null) {
-			return date;
-		}
-
-		logger.error("Could not parse date string: '" + dateString + "'");
-		
-		return null;
-    	
+		return date;
     }
     
     
@@ -175,7 +168,7 @@ public class DateUtils {
      * This will return a Date object, given a timestamp string in the 
      * format "yyyy-MM-dd HH:mm:ss.SSS". It will return null if the given
      * timestamp string is null. If the given string is not parseable,
-     * it will both return null, and log an error.
+     * it will return null.
      * @param timestampString a timestamp string
      * @return a Date object representing the timestamp. 
      */
@@ -201,13 +194,7 @@ public class DateUtils {
 		} catch (ParseException e) {
 		}
 		
-		if (timestamp != null) {
-			return timestamp;
-		}
-
-		logger.error("Could not parse timestamp: '" + timestampString + "'");
-		
-		return null;
+		return timestamp;
     }
 
 	public static List<String> generateDateRangeStringList(Date startDate, Date endDate) {
